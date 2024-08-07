@@ -14,8 +14,8 @@ const allowedOrigins = ['http://localhost:3000', 'https://daysi.netlify.app'];
 app.use(
   cors({
     credentials: true,
-    origin: 'http://localhost:3000',
-    // origin: 'https://daysi.netlify.app',
+    // origin: 'http://localhost:3000',
+    origin: 'https://daysi.netlify.app',
   })
 );
 app.use(express.json({ extended: true, limit: '10mb' }));
