@@ -20,7 +20,7 @@ router.delete('/delete-product/:id', ProductControllers.removeProduct);
 
 router.post('/translate-text', ProductControllers.translateText);
 
-router.get('/photos/:filename', ImageControllers.getImages);
+router.get('/photo/:filename', ImageControllers.getImages);
 router.post('/upload', ImageControllers.uploadImage);
 
 module.exports = router;

@@ -16,6 +16,7 @@ class ImageControllers {
       res.send({
         message: 'Файл успішно завантажено',
         success: true,
+        id: result._id.toString(),
       });
     } catch (error) {
       res.status(500).send('Server error');
@@ -23,9 +24,8 @@ class ImageControllers {
   }
 
   async getImages(req, res, next) {
-    console.log(req);
     try {
-      const images = await ImageModel.find();
+      const images = await ImageModel.findOne({ _id: req.params.filename });
       res.send(images);
     } catch (error) {
       res.status(500).send('Server error');

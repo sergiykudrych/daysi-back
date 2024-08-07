@@ -22,7 +22,6 @@ class ProductService {
   }
   async updateProduct(body) {
     let { titleRu, titleMd, descriptionRu, descriptionMd, price, images, count, id } = body.product;
-    console.log(id);
     const updateDoc = {
       $set: {
         titleRu: titleRu,
