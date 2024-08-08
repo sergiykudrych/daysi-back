@@ -10,12 +10,12 @@ const path = require('path');
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000', 'https://daysi.netlify.app'];
 app.use(
   cors({
     credentials: true,
+    origin: 'https://daisygrooming.md',
     // origin: 'http://localhost:3000',
-    origin: 'https://daysi.netlify.app',
+    // origin: 'https://daysi.netlify.app',
   })
 );
 app.use(express.json({ extended: true, limit: '10mb' }));
