@@ -13,7 +13,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: 'https://daisygrooming.md',
+    origin: 'https://daisygrooming.md/',
     // origin: 'http://localhost:3000',
     // origin: 'https://daysi.netlify.app',
   })
