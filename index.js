@@ -14,7 +14,7 @@ app.use(
   cors({
     credentials: true,
     origin: 'https://daisygrooming.md',
-    origin: 'http://localhost:3000',
+    // origin: 'http://localhost:3000',
     // origin: 'https://daysi.netlify.app',
   })
 );
