@@ -3,8 +3,8 @@ const { default: axios } = require('axios');
 class ProductControllers {
   async createProduct(req, res, next) {
     try {
-      const { titleRu, titleMd, descriptionRu, descriptionMd, price, images, count } = req.body.product;
-      const userData = await productService.createProduct(titleRu, titleMd, descriptionRu, descriptionMd, price, images, count);
+      const { titleRu, titleMd, descriptionRu, descriptionMd, price, images, count, options } = req.body.product;
+      const userData = await productService.createProduct(titleRu, titleMd, descriptionRu, descriptionMd, price, images, count, options);
       return res.json(userData);
     } catch (e) {
       console.log(e);

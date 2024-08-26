@@ -4,6 +4,7 @@ const { body } = require('express-validator');
 const UserControllers = require('../controllers/user-controllers');
 const ProductControllers = require('../controllers/product-controllers');
 const ImageControllers = require('../controllers/image-controllers');
+const InfoControllers = require('../controllers/info-controllers');
 
 router.post('/registration', body('email').isEmail(), body('password').isLength({ min: 3, max: 32 }), UserControllers.registration);
 
@@ -22,6 +23,11 @@ router.post('/translate-text', ProductControllers.translateText);
 
 router.get('/photo/:filename', ImageControllers.getImages);
 router.post('/upload', ImageControllers.uploadImage);
+
+router.get('/get-info', InfoControllers.getInfo);
+router.post('/add-info', InfoControllers.addInfo);
+router.post('/update-info', InfoControllers.updateInfo);
+router.post('/update-price', InfoControllers.updatePrice);
 
 module.exports = router;
 // const fileMiddleware = require('../middlewares/file-middleeare');

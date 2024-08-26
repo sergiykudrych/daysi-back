@@ -30,6 +30,9 @@ const productModel = new Schema({
     type: Number,
     default: 0,
   },
+  options: {
+    type: [Array],
+  },
 });
 
 module.exports = model('Product', productModel);

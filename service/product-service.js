@@ -2,12 +2,12 @@ const ProductModel = require('../models/product-model');
 const ApiError = require('../exception/api-error');
 
 class ProductService {
-  async createProduct(titleRu, titleMd, descriptionRu, descriptionMd, price, images, count) {
+  async createProduct(titleRu, titleMd, descriptionRu, descriptionMd, price, images, count, options) {
     const items = await ProductModel.findOne({ titleRu });
     if (items) {
       throw ApiError.BadRequest(`Такой товар уже есть`);
     }
-    await ProductModel.create({ titleRu, titleMd, descriptionRu, descriptionMd, price, images, count });
+    await ProductModel.create({ titleRu, titleMd, descriptionRu, descriptionMd, price, images, count, options });
     let status = 200;
     return status;
   }
@@ -21,7 +21,7 @@ class ProductService {
     return product;
   }
   async updateProduct(body) {
-    let { titleRu, titleMd, descriptionRu, descriptionMd, price, images, count, id } = body.product;
+    let { titleRu, titleMd, descriptionRu, descriptionMd, price, images, count, options, id } = body.product;
     const updateDoc = {
       $set: {
         titleRu: titleRu,
@@ -31,10 +31,11 @@ class ProductService {
         images: images,
         price: price,
         count: count,
+        options: options,
       },
     };
-    const options = { returnDocument: 'after' };
-    const product = await ProductModel.findOneAndUpdate({ _id: id }, updateDoc, options);
+    const option = { returnDocument: 'after' };
+    const product = await ProductModel.findOneAndUpdate({ _id: id }, updateDoc, option);
     if (product) {
       return { message: 'Продукт успешно обновлен' };
     } else if (!product) {
